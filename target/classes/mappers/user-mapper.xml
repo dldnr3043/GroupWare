@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="UserMapper">
+	<insert id="create" parameterType="com.mycompany.groupware.VO.UserVO">
+		insert into employee(employee_no, team_name, email, employee_name, pw, position_id, image_url)
+		 values(#{employee_no}, #{team_name}, #{email}, #{employee_name}, #{pw}, #{position_id}, #{image_url})
+	</insert>
+	
+	<select id="read" resultType="com.mycompany.groupware.VO.UserVO">
+		select * from employee
+		where employee_no = #{input} or
+			  team_name = #{input}
+	</select>
+	
+	<select id="login" resultType="com.mycompany.groupware.VO.UserVO">
+		select * from employee
+		where employee_no = #{employee_no} and
+			  pw = #{pw}
+	</select>
+
+	<update id="update" parameterType="com.mycompany.groupware.VO.UserVO">
+		update employee set pw = #{pw},
+						  image_url = #{image_url},
+						  email = #{email},
+						  team_name = #{team_name},
+						  position_id = #{position_id},
+						  last_login = #{last_login}
+					where employee_no = #{employee_no}
+	</update>
+	
+	<delete id="delete">
+		delete from employee where employee_no = #{employee_no}
+	</delete>
+	
+	<select id="listAll" resultType="com.mycompany.groupware.VO.UserVO">
+		select * from employee
+	</select>
+</mapper>

@@ -1,0 +1,18 @@
+/* 사원 */
+DROP TABLE EMPLOYEE CASCADE CONSTRAINTS;
+
+/* 사원 */
+CREATE TABLE EMPLOYEE (
+	EMPLOYEE_NO VARCHAR(10) NOT NULL, /* 사번 */
+	TEAM_NAME VARCHAR(10), /* 소속 */
+	EMAIL VARCHAR(50), /* 이메일 */
+	EMPLOYEE_NAME VARCHAR(50), /* 이름 */
+	JOIN_DATE DATE default(now()), /* 입사일 */
+	PW VARCHAR(50), /* 암호 */
+	LAST_LOGIN DATE, /* 최근로그인 */
+	POSITION_ID INT, /* 직급_ID */
+	ROLE VARCHAR(10) default('USER'), /* ROLE(USER, ADMIN) */
+	IMAGE_URL VARCHAR(50), /* 이미지경로 */
+    
+    PRIMARY KEY(EMPLOYEE_NO)
+);

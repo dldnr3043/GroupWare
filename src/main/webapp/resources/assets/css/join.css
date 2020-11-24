@@ -1,0 +1,69 @@
+@CHARSET "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+p {
+            font-size: 11px;
+        }
+
+        body {
+        	background: #F1F1F1; /* fallback for old browsers */
+  			background: -webkit-linear-gradient(right, #F1F1F1, #F1F1F1);
+  			background: -moz-linear-gradient(right, #F1F1F1, #F1F1F1);
+  			background: -o-linear-gradient(right, #F1F1F1, #F1F1F1);
+  			background: linear-gradient(to left, #F1F1F1, #F1F1F1);
+  			font-family: "Roboto", sans-serif;
+  			-webkit-font-smoothing: antialiased;
+  			-moz-osx-font-smoothing: grayscale;    
+        }
+
+        .form-wrap {
+            max-width: 360px;
+            margin: 0 auto;
+            overflow: hidden;
+            border: #f1eded solid 1px;
+            padding: 20px;
+            background: #ffffff;
+            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+        }
+        
+        .form-wrap input {
+  			background: #f1f1f1;
+  			width: 70%;
+		}
+
+        #menu {
+            width: 20%;
+            float: left;
+            line-height: 230%;
+        }
+
+        #form {
+            width: 79%;
+            float: left;
+            line-height: 230%;
+        }
+        
+
+        #join {
+            font-size: 20px;
+            height: 30px;
+            padding: 0;
+        }
+
+        #additionalinfo {
+            font-size: 15px;
+            height: 30px;
+            padding: 0;
+        }
+        .essential{
+            font-size:15px;
+            color:red;
+            float:left;
+        }
+        div.input{
+            float:left;
+        }
+        
+        .submit{
+        	margin-top:30px;
+        }

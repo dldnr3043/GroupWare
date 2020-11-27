@@ -94,14 +94,24 @@ public class UserController {
 	
 	/* 관리자 페이지 */
 	@RequestMapping(value="/admin", method=RequestMethod.GET)
-	public String getadmin(Model model) throws Exception {
+	public String getadmin(Model model, HttpServletRequest req) throws Exception {
 		logger.info("admin page");
 		
-		List<UserVO> list = new ArrayList<UserVO>();
-		list = userService.isAuth(0);
-		model.addAttribute("list", list);
+		HttpSession session = req.getSession();
+		UserVO VO = (UserVO)session.getAttribute("user");	// 현재 세션 정보 가져오기
 		
-		return "user/admin";
+		/* 현재 세션 정보에 해당하는 UserVO가 admin인지 판단하고 알맞게 로직 처리 */
+		if(VO.getRole().equals("ADMIN")) {
+			List<UserVO> list = new ArrayList<UserVO>();
+			list = userService.isAuth(0);
+			model.addAttribute("list", list);
+			
+			return "user/admin";
+		}
+		else {
+			logger.info("잘못된 접근");
+			return "redirect:/" + adminpagefault();
+		}
 	}
 	@RequestMapping(value="/admin", method=RequestMethod.POST)
 	public String postadmin(@ModelAttribute UserVO userVO) throws Exception {
@@ -127,5 +137,12 @@ public class UserController {
 	public String notapproval() {
 		logger.info("notapproval");
 		return "user/notapproval";
+	}
+	
+	/* admin이 아닌 유저가 admin 페이지에 접근 할 때 나오는 페이지 */
+	@RequestMapping(value="/adminpagefault", method=RequestMethod.GET)
+	public String adminpagefault() {
+		logger.info("adminpagefault");
+		return "user/adminpagefault";
 	}
 }

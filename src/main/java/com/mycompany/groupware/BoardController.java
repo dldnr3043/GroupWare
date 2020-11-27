@@ -4,23 +4,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class MainController {
+@RequestMapping("/board")
+public class BoardController {
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 	
-	@RequestMapping(  "/" )
-	public String login() {
-		return "user/login";
-	}
-	
-	@RequestMapping( "/main")
-	public String main() {
-		return "main/main";
-	}
-	
-	@RequestMapping( "/board")
+	/* 게시물 페이지 */
+	@RequestMapping(value="/index", method=RequestMethod.GET)
 	public String board() {
-		return "board/board";
+		logger.info("getlogin");
+		return "board/index";
 	}
 }

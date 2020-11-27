@@ -14,10 +14,21 @@
 			  team_name = #{input}
 	</select>
 	
+	<select id="readMail" resultType="com.mycompany.groupware.VO.UserVO">
+		select * from employee
+		where email = #{email}
+	</select>
+	
+	
 	<select id="login" resultType="com.mycompany.groupware.VO.UserVO">
 		select * from employee
 		where employee_no = #{employee_no} and
 			  pw = #{pw}
+	</select>
+	
+	<select id="isAuth" resultType="com.mycompany.groupware.VO.UserVO">
+		select * from employee
+		where is_auth = #{is_auth}
 	</select>
 
 	<update id="update" parameterType="com.mycompany.groupware.VO.UserVO">
@@ -26,7 +37,8 @@
 						  email = #{email},
 						  team_name = #{team_name},
 						  position_id = #{position_id},
-						  last_login = #{last_login}
+						  last_login = #{last_login},
+						  is_auth = #{is_auth}
 					where employee_no = #{employee_no}
 	</update>
 	

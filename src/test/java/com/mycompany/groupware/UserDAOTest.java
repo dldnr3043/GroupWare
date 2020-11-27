@@ -31,18 +31,29 @@ public class UserDAOTest {
 		vo.setPosition_id(1);
 		dao.create(vo);
 	}*/
-	@Test
-	public void testreadMember() throws Exception {
-		System.out.println(dao.login("2015136091", "1"));
-	}
 	/*@Test
+	public void testreadMember() throws Exception {
+		System.out.println(dao.readMail("dldnr3043@naver.com"));
+	}*/
+	
+	/*@Test
+	public void testIsAuth() throws Exception {
+		List<UserVO> list = new ArrayList<UserVO>();
+		
+		list = dao.isAuth(0);
+		
+		for(int i=0;i<dao.isAuth(0).size();i++)
+			System.out.println(dao.isAuth(0).indexOf(i));
+	}*/
+	
+	@Test
 	public void testupdateMember() throws Exception {
 		UserVO userVO = dao.read("2015136091");
 		
-		userVO.setPosition_id(1);
+		userVO.setEmployee_name("test");
 		
 		dao.update(userVO);
-	}*/
+	}
 	
 	/*@Test
 	public void testdeleteMember() throws Exception {

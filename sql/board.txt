@@ -1,0 +1,17 @@
+/* 게시판 */
+DROP TABLE BOARD CASCADE CONSTRAINTS;
+
+/* 게시판 */
+CREATE TABLE BOARD (
+	BOARD_ID VARCHAR(10) NOT NULL, /* 게시판ID */
+    	BOARD_NUM INT(255) NOT NULL, /* 게시판번호 */
+	TITLE VARCHAR(50), /* 게시판명 */
+	CONTENT VARCHAR(500), /* 게시판 내용 */
+	BOARD_AUTHORITY VARCHAR(10), /* 접근권한 (직급에 따라 게시물을 등록 가능) */
+	IS_TEAM VARCHAR(10), /* 팀전용여부 (해당 팀만 볼 수 있는 게시물) */
+    	VIEW_COUNT INT default(0), /* 조회수 */
+    	REGDATE DATE default(now()), /* 등록 날짜 */
+    	MODDATE VARCHAR(20), /* 수정 날짜 */
+
+	CONSTRAINT BOARD_KEY PRIMARY KEY(BOARD_ID, BOARD_NUM)
+);

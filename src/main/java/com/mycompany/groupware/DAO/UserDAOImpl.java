@@ -38,6 +38,11 @@ public class UserDAOImpl implements UserDAO{
 		
 		return sqlSession.selectOne(namespace + ".login", parameter);
 	}
+	
+	@Override
+	public List<UserVO> isAuth(int is_auth) throws Exception {
+		return sqlSession.selectList(namespace + ".isAuth", is_auth);
+	}
 
 	@Override
 	public void update(UserVO userVO) throws Exception {
@@ -55,6 +60,12 @@ public class UserDAOImpl implements UserDAO{
 	public List<UserVO> listAll() throws Exception {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList(namespace + ".listAll");
+	}
+
+	@Override
+	public UserVO readMail(String email) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(namespace + ".readMail", email);
 	}
 
 }

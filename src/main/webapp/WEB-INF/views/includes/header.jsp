@@ -6,7 +6,7 @@
 
 <header id="main_header">
 	<h1 class="logo">
-		<a href="${pageContext.request.contextPath }/main" ><img id="title_image" src="${pageContext.servletContext.contextPath }/resources/assets/images/title.png" /></a>
+		<a href="${pageContext.request.contextPath }/main" ><img id="title_image" src="${pageContext.servletContext.contextPath }/resources/assets/images/title2.png" /></a>
 	</h1>
 
 	<div class="login_menu">
@@ -17,7 +17,7 @@
 			<c:otherwise>
 			<input type="hidden" id="userEmployeeNo" value="${authUser.employeeNo}" >
 			
-				<span> ${user.employee_no } ${user.position_id }님 반갑습니다.
+				<span> ${user.employee_name } ${user.position_id }님 반갑습니다.
 				<c:if test="${user.role == 'ADMIN' }">
 					<a href="${pageContext.servletContext.contextPath }/user/admin">관리페이지</a>
 				</c:if>

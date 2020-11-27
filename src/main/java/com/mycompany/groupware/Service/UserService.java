@@ -24,8 +24,16 @@ public class UserService {
 		return dao.read(input);
 	}
 	
+	public UserVO readMail(String email) throws Exception {
+		return dao.readMail(email);
+	}
+	
 	public UserVO login(String employee_no, String pw) throws Exception {
 		return dao.login(employee_no, pw);
+	}
+	
+	public List<UserVO> isAuth(int is_auth) throws Exception {
+		return dao.isAuth(is_auth);
 	}
 	
 	public void update(UserVO userVO) throws Exception {

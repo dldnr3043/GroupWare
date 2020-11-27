@@ -1,7 +1,9 @@
 package com.mycompany.groupware;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -88,6 +90,28 @@ public class UserController {
 		userVO.setImage_url(fileuploadservice.restore(file));
 		userService.create(userVO);
 		return "redirect:/" + joinsuccess();
+	}
+	
+	/* 관리자 페이지 */
+	@RequestMapping(value="/admin", method=RequestMethod.GET)
+	public String getadmin(Model model) throws Exception {
+		logger.info("admin page");
+		
+		List<UserVO> list = new ArrayList<UserVO>();
+		list = userService.isAuth(0);
+		model.addAttribute("list", list);
+		
+		return "user/admin";
+	}
+	@RequestMapping(value="/admin", method=RequestMethod.POST)
+	public String postadmin(@ModelAttribute UserVO userVO) throws Exception {
+		
+		logger.info(userVO.getEmail());
+		UserVO vo = userService.readMail(userVO.getEmail());
+		vo.setIs_auth(1);
+		userService.update(vo);
+		
+		return "redirect:/user/admin";
 	}
 	
 	/* 회원가입 완료되었을 때 나오는 페이지 */

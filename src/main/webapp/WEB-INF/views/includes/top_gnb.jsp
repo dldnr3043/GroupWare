@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+	<link href="${pageContext.servletContext.contextPath }/resources/assets/css/top_gnb.css" rel="stylesheet" type="text/css">
+	
     <nav id="top_gnb">
     <a href="${pageContext.servletContext.contextPath }/board" class="menu item_1 "></a>
     <a href="${pageContext.servletContext.contextPath }/calendar" class="menu item_2"></a>

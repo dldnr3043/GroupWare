@@ -8,7 +8,7 @@ public class UserVO {
 	String join_date;
 	String pw;
 	String last_login;
-	int position_id;
+	String position_id;
 	String role;
 	String image_url;
 	int is_auth;
@@ -81,11 +81,11 @@ public class UserVO {
 		this.last_login = last_login;
 	}
 
-	public int getPosition_id() {
+	public String getPosition_id() {
 		return position_id;
 	}
 
-	public void setPosition_id(int position_id) {
+	public void setPosition_id(String position_id) {
 		this.position_id = position_id;
 	}
 

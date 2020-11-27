@@ -10,7 +10,7 @@ CREATE TABLE EMPLOYEE (
 	JOIN_DATE DATE default(now()), /* 입사일 */
 	PW VARCHAR(50), /* 암호 */
 	LAST_LOGIN DATE, /* 최근로그인 */
-	POSITION_ID VARCHAR(5), /* 직급_ID */
+	POSITION_ID INT, /* 직급_ID */
 	ROLE VARCHAR(10) default('USER'), /* ROLE(USER, ADMIN) */
 	IMAGE_URL VARCHAR(50), /* 이미지경로 */
     
